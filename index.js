@@ -25,37 +25,54 @@ id.addEventListener("click",function()
 // Scroll amount (change based on your design, e.g., width of one image)
 
 
-const slider = document.querySelector('.slider-image');
-const leftButton = document.querySelector('.slider-left i');
-const rightButton = document.querySelector('.slider-right i');
+var slider = document.querySelector('.slider-image');
+var leftButton = document.querySelector('#slide-left-activate');
+var  rightButton = document.querySelector('#slide-right-activate');
+var slidermargin=0
+console.log(leftButton)
+console.log(rightButton)
 
-// Scroll amount (width of one image, which is 97vw)
-const scrollAmount = window.innerWidth * 0.97;
+rightButton.addEventListener("click",
 
-// Handle left button click
-leftButton.addEventListener('click', () => {
-    // Check if we're not at the beginning (current scroll position > 0)
-    if (slider.scrollLeft > 0) {
-        slider.scrollBy({
-            left: -scrollAmount,  // Scroll to the left by one image width
-            behavior: 'smooth',   // Smooth scrolling animation
-        });
+    function(){
+        slidermargin=slidermargin+100
+    
+        if(slidermargin>200)
+        {
+            slidermargin=0
+            slider.style.marginLeft=0;
+        }
+        else{
+            slider.style.marginLeft="-"+slidermargin+"vw";
+        }
+        
+       
+    
     }
-});
-
-// Handle right button click
-rightButton.addEventListener('click', () => {
-    // Calculate the maximum scrollable width
-    const maxScroll = slider.scrollWidth - slider.clientWidth;
-
-    // Check if we're not at the end (current scroll position < max scrollable width)
-    if (slider.scrollLeft < maxScroll) {
-        slider.scrollBy({
-            left: scrollAmount,   // Scroll to the right by one image width
-            behavior: 'smooth',   // Smooth scrolling animation
-        });
+    )
+    
+leftButton.addEventListener("click",
+    
+    function(){
+    
+        if(slidermargin==0)
+        {
+           
+            slidermargin=200
+            slider.style.marginLeft="-"+slidermargin+"vw";
+        }
+        else{
+    
+            slidermargin=slidermargin-100
+        slider.style.marginLeft="-"+slidermargin+"vw";
+        }
+        
+        
     }
-});
+    )
+    
+    
+
 
 
 
@@ -65,11 +82,9 @@ var like = document.querySelectorAll(".like-button");
 for (let count = 0; count < like.length; count++) {
     like[count].addEventListener("click", function() {
         if (like[count].src.includes("images/blackheart.png")) {
-            like[count].src = "images/redheart.png"; // Path to your red heart image
-            // Optionally update alt text for accessibility
+            like[count].src = "images/redheart.png"; 
         } else {
-            like[count].src = "images/blackheart.png"; // Path to your black heart image
-            // Optionally update alt text for accessibility
+            like[count].src = "images/blackheart.png"; 
         }
     });
 }

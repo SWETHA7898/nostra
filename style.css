@@ -134,15 +134,12 @@ h4{
 }
 .slider-image {
     display: flex;
-    width: 100vw;
-    overflow-x: hidden;
-    
+    transition: 2s;
+   
 }
 
 .slider-image img {
-    flex: 0 0 auto; /* Prevents images from shrinking or stretching */
-    /* Adjust as needed */
-    height: auto;
+    width: 100vw;
    
 }
 .slider-content button {

@@ -35,7 +35,7 @@ id.addEventListener("click",function()
     
     const products = document.querySelectorAll(".product");
 
-    // Add event listeners to checkboxes
+   
     checkboxes.forEach((checkbox) => {
         checkbox.addEventListener("change", filterProducts);
     });
