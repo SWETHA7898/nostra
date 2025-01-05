@@ -36,10 +36,13 @@ rightButton.addEventListener("click",
 
     function(){
         slidermargin=slidermargin+100
+        console.log(slidermargin)
     
         if(slidermargin>200)
         {
             slidermargin=0
+            
+            
             slider.style.marginLeft=0;
         }
         else{
@@ -88,6 +91,26 @@ for (let count = 0; count < like.length; count++) {
         }
     });
 }
+
+
+window.addEventListener("scroll",function(){
+    var elements = this.document.querySelectorAll(".initial-animate")
+    elements.forEach((el)=>{
+        windowHeight = window.innerHeight
+     var elbound = el.getBoundingClientRect()
+   
+
+     console.log(windowHeight)
+     console.log(elbound.top)
+     if(windowHeight>elbound.top-100){
+        console.log("Hi")
+    el.classList.remove("reveal-scroll-animate")
+
+    }
+    
+})
+    
+})
 
 
 

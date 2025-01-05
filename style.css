@@ -189,6 +189,9 @@ h4{
 .initial-animate{
     transition: 2s;
 }
+.reveal-scroll-animate{
+    opacity: 0;
+}
 .service-container {
     margin-top: 5vw;
     margin-bottom: 2vw;
